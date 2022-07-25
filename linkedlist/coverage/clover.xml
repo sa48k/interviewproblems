@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1658739025371" clover="3.2.0">
-  <project timestamp="1658739025371" name="All files">
+<coverage generated="1658745709510" clover="3.2.0">
+  <project timestamp="1658745709511" name="All files">
     <metrics statements="37" coveredstatements="29" conditionals="16" coveredconditionals="14" methods="9" coveredmethods="8" elements="62" coveredelements="51" complexity="0" loc="37" ncloc="37" packages="1" files="1" classes="1"/>
     <file name="LinkedList.js" path="C:\Users\super\Dropbox\dev\interviewproblems\linkedlist\LinkedList.js">
       <metrics statements="37" coveredstatements="29" conditionals="16" coveredconditionals="14" methods="9" coveredmethods="8"/>
