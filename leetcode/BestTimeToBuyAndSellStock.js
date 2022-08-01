@@ -18,13 +18,14 @@
 
 // actual solution using left (buy) and right (sell) pointers
 // runs in O(n) time
+// (this is Kadane's algorithm)
 
 var maxProfit = function (prices) {
     let left = 0
     let right = 1
     let maxprofit = 0
     while (right < prices.length) {
-        if (prices[left] < prices[right]) {             // if this trade is profitable
+        if (prices[left] < prices[right]) {            // if this trade is profitable
             let profit = prices[right] - prices[left]  // find out HOW profitable, 
             maxprofit = Math.max(maxprofit, profit)    // then if it's higher than the current best known profit, update the maxprofit
         } else {
