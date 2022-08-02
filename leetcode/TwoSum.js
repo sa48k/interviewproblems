@@ -20,6 +20,7 @@ var twoSum = function (nums, target) {
     for (let i = 0; i < nums.length; i++) {
         indices[nums[i]] = i
     }
+    // console.log(indices)
     
     for (let i = 0; i < nums.length; i++) { // second pass
         const n2 = target - nums[i]         // search for the complementary number that adds to target
