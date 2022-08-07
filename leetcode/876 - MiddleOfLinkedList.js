@@ -16,23 +16,32 @@ n3.next = n4
 n4.next = n5
 // n5.next = n6
 
-var middleNode = function (head) {
-    // find the length of the list
-    let count = 1
-    curr = head
-    while (curr.next) {
-        count++
-        curr = curr.next
-    }
-    curr = head // reset current node to beginning of list
+// var middleNode = function (head) {
+//     // find the length of the list
+//     let count = 1
+//     curr = head
+//     while (curr.next) {
+//         count++
+//         curr = curr.next
+//     }
+//     curr = head // reset current node to beginning of list
 
-    // return the node at index [length/2, rounded up, minus 1]
-    for (let i = 0; i < Math.floor(count - 1) / 2 ; i++) {
+//     // return the node at index [length/2, rounded up, minus 1]
+//     for (let i = 0; i < Math.floor(count - 1) / 2 ; i++) {
+//         curr = curr.next
+//     }
+//     return curr
+// };
+
+const middleNode = (head) => {
+    curr = head
+    fast = head
+    while (fast && fast.next) {
         curr = curr.next
+        fast = fast.next.next
     }
     return curr
-};
-
+}
 console.log(middleNode(n1))
 
 // better solution: use a fast pointer (jumps 2 nodes)
