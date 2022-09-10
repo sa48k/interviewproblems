@@ -32,6 +32,8 @@ var checkInclusion = function (s1, s2) {
         return freqmap
     }
 
+    // this is a slow way to do it
+    // should have used two pointers instead
     let s1freqs = buildFrequencyMap(s1)
     for (let start = 0; start < s2.length-s1.length+1; start++) {
         let s2freqs = buildFrequencyMap(s2.slice(start, start+s1.length))
