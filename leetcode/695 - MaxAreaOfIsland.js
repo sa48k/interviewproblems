@@ -18,7 +18,7 @@ var maxAreaOfIsland = function (grid) {
 
 const dfs = (grid, y, x) => {
     // displayGrid(grid) // debug
-    if (y < 0 || y > grid.length-1 || x < 0 || x > grid[0].length || !grid[y][x]) return 0 // short circuit; there's nothing this way
+    if (y < 0 || y > grid.length-1 || x < 0 || x > grid[0].length || !grid[y][x]) return 0 // short circuit; there's no land this way
     grid[y][x] = 0
     return 1 + dfs(grid, y - 1, x) + dfs(grid, y + 1, x) + dfs(grid, y, x - 1) + dfs(grid, y, x + 1)
 }
