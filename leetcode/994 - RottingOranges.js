@@ -19,6 +19,7 @@ const displayGrid = (grid, fresh) => {
 
 var orangesRotting = function (grid) {
     let queue = []
+    let directions = [[-1, 0], [0, 1], [1, 0], [0, -1]];
     let fresh = 0
     let time = 0
     for (let i = 0; i < grid.length; i++) {
@@ -40,25 +41,14 @@ var orangesRotting = function (grid) {
         let qlength = queue.length
         for (let i = 0; i < qlength; i++) { // iterate through known 2s in queue
             const [y, x] = queue.shift()
-            if (x - 1 >= 0 && grid[y][x - 1] === 1) { // check left
-                newqueue.push([y, x - 1])
-                grid[y][x - 1] = 2
-                fresh--
-            }
-            if (x + 1 <= grid[0].length - 1 && grid[y][x + 1] === 1) { // check right
-                newqueue.push([y, x + 1])
-                grid[y][x + 1] = 2
-                fresh--
-            }
-            if (y - 1 >= 0 && grid[y - 1][x] === 1) { // check up
-                newqueue.push([y - 1, x])
-                grid[y - 1][x] = 2
-                fresh--
-            }
-            if (y + 1 <= grid.length - 1 && grid[y + 1][x] === 1) { // check down
-                newqueue.push([y + 1, x])
-                grid[y + 1][x] = 2
-                fresh--
+            for (let d of directions) {
+                let xx = x + d[1]
+                let yy = y + d[0]
+                if (xx >= 0 && xx <= grid[0].length && yy >= 0 && yy <= grid.length - 1 && grid[yy][xx] === 1) { // bounds check
+                    newqueue.push([yy, xx])
+                    grid[yy][xx] = 2
+                    fresh--
+                }
             }
         }
         queue = newqueue
@@ -79,4 +69,4 @@ const ex4 = [[0]]                             // 0
 const ex5 = [[2, 1, 1], [1, 1, 1], [0, 1, 2]] // 2
 const ex6 = [[2, 1, 0, 2]]                    // 1
 
-console.log(orangesRotting(ex6))
+console.log(orangesRotting(ex2))
